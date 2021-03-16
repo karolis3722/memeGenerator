@@ -1,0 +1,50 @@
+.hide {
+  display: none !important;
+}
+body {
+  background-color: #66757F !important;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+.card {
+  background-color: #292f336e !important;
+  box-shadow: inset 0 0 10px #000000;
+  min-width: 250px;
+  max-width: 650px;
+  max-height: 750px;
+  border-radius: 15px !important;
+}
+.btn-primary {
+  background-color: #55ACEE !important;
+  width: 100%;
+}
+.btn-primary:hover {
+  background-color: #034b98 !important;
+}
+.like-btn:hover {
+  background-color: green !important;
+}
+img {
+  max-width: 600px;
+  max-height: 600px;
+}
+h2 {
+  text-align: center;
+  font-family: impact;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:2px 2px 0 #000,
+  -2px -2px 0 #000,
+  2px -2px 0 #000,
+  -2px 2px 0 #000,
+  0px 2px 0 #000,
+  2px 0px 0 #000,
+  0px -2px 0 #000,
+  -2px 0px 0 #000,
+  2px 2px 5px #000;
+}
