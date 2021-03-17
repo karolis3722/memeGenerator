@@ -23,12 +23,12 @@ class Generator extends React.Component {
 
     getMeme() {
         this.setState({loading: true});
-        this.loadingHandler();
         let number = Math.floor(Math.random() * 400);
         Axios.get(`http://alpha-meme-maker.herokuapp.com/memes/${number}`)
         .then(res => {
             if (res.data.code === 404) {
                 this.getMeme();
+                this.setState({loading: true})
             }
             else {
                 this.setState({
@@ -36,6 +36,9 @@ class Generator extends React.Component {
                 })
             }
             this.checkImage(this.state.meme.image);
+        })
+        .catch(err => {
+            this.setState({loading: true})
         })
     }
 
@@ -54,6 +57,9 @@ class Generator extends React.Component {
 
     checkImage(image) {
         Axios.get(image)
+        .then(res => {
+            this.loadingHandler();
+        })
         .catch(err => {
             this.getMeme();
         })
@@ -69,13 +75,17 @@ class Generator extends React.Component {
         return (
             <div>
                 <Container className={this.state.loading ? 'hide' : ''} fluid>
-                    <Card>
-                        <Card.Body>
-                            <h2>{this.state.meme.topText}</h2>
-                            <Image src={this.state.meme.image} />
-                            <h2>{this.state.meme.bottomText}</h2>
-                        </Card.Body>
-                    </Card>
+                    <Row>
+                        <Col>
+                            <Card>
+                                <Card.Body>
+                                    <h2>{this.state.meme.topText}</h2>
+                                    <Image src={this.state.meme.image} />
+                                    <h2>{this.state.meme.bottomText}</h2>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col xs={4}>
                             <Button onClick={this.like} className='like-btn' size='lg'>Like</Button>
