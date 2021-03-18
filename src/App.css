@@ -65,3 +65,11 @@ h2 {
     font-size: 0.9em;
   }
 }
+@media (max-width: 280px) {
+  h2 {
+    font-size: 1em !important;
+  }
+  .buttons_container button{
+    font-size: 0.6em;
+  }
+}
