@@ -87,13 +87,9 @@ class Generator extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={4}>
+                        <Col className="buttons_container">
                             <Button onClick={this.getPreviousMeme} className={this.state.haveLike ? '' : 'hide'} size='lg'>Liked one</Button>
-                        </Col>
-                        <Col xs={4}>
                             <Button onClick={this.getMeme} size='lg'>Generate</Button>
-                        </Col>
-                        <Col xs={4}>
                             <Button onClick={this.like} className='like-btn' size='lg'>Like</Button>
                         </Col>
                     </Row>
